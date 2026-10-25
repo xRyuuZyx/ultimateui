@@ -1,0 +1,74 @@
+# Semua teks pakai format MiniMessage: https://docs.advntr.dev/minimessage/format.html
+prefix: "<gray>[<gold>UI</gold>]</gray> "
+
+# ---------- Nilai bawaan pengaturan pemain ----------
+defaults:
+  audio: { master: 100, music: 60, sfx: 100, ui: 100, ambient: 100 }
+  view-distance: 10
+  simulation-distance: 8
+  show-stats: false          # tampil ping & TPS di tab list
+  show-hints: true           # tampil petunjuk
+  message-style: ACTIONBAR   # CHAT | ACTIONBAR | TITLE
+  menu-hotkey: SHIFT_F       # OFF | F | SHIFT_F  (F = tombol tukar tangan)
+  pause-hotkey: "OFF"
+
+limits:
+  view-distance: { min: 4, max: 16 }
+  simulation-distance: { min: 3, max: 10 }
+
+ui-sound:
+  click: "minecraft:ui.button.click"
+  confirm: "minecraft:entity.experience_orb.pickup"
+  deny: "minecraft:block.note_block.bass"
+
+# ---------- Menu utama ----------
+# action: settings | pause | menu | close | quit      command: perintah yang dijalankan
+# as: player (bawaan) atau console. Placeholder: %player%
+main-menu:
+  title: "<gradient:#ffaa00:#ff5555><bold>MENU UTAMA</bold></gradient>"
+  rows: 3
+  filler: BLACK_STAINED_GLASS_PANE
+  buttons:
+    - { slot: 10, material: PLAYER_HEAD, name: "<yellow>%player%", lore: ["<gray>Profil kamu"], action: close }
+    - { slot: 12, material: SHIELD, name: "<gold>Gang / Keluarga", lore: ["<gray>Buka menu gang"], command: "gang menu" }
+    - { slot: 13, material: GOLDEN_PICKAXE, name: "<green>Pekerjaan", lore: ["<gray>Lihat job kamu"], command: "job info" }
+    - { slot: 14, material: COMPARATOR, name: "<aqua>Pengaturan", lore: ["<gray>Audio, grafis, kontrol, UI"], action: settings }
+    - { slot: 16, material: CLOCK, name: "<white>Menu Jeda", lore: ["<gray>Lanjutkan / keluar"], action: pause }
+    - { slot: 22, material: BARRIER, name: "<red>Tutup", action: close }
+
+# ---------- Menu jeda ----------
+pause-menu:
+  title: "<gradient:#55ffff:#5555ff><bold>JEDA</bold></gradient>"
+  rows: 3
+  filler: GRAY_STAINED_GLASS_PANE
+  quit-message: "<yellow>Sampai jumpa lagi!"
+  buttons:
+    - { slot: 10, material: LIME_DYE, name: "<green>Lanjutkan", action: close }
+    - { slot: 12, material: COMPARATOR, name: "<aqua>Pengaturan", action: settings }
+    - { slot: 14, material: COMPASS, name: "<gold>Menu Utama", action: menu }
+    - { slot: 16, material: RED_DYE, name: "<red>Keluar dari Server", lore: ["<gray>Akan diminta konfirmasi"], action: quit }
+
+# ---------- Loading screen ----------
+loading:
+  on-join: true
+  seconds: 5
+  title: "<gradient:#ffaa00:#ff5555><bold>KOTA ROLEPLAY</bold></gradient>"
+  subtitle: "<gray>Memuat dunia..."
+  tips:
+    - "Tekan <white>Shift + F</white> untuk membuka menu."
+    - "Atur suara dan jarak pandang di <white>/settings</white>."
+    - "Gunakan <white>/pause</white> untuk membuka menu jeda."
+
+# ---------- Musik & ambient (opsional) ----------
+# Suara diputar ke pemain dan volumenya mengikuti slider Master x Musik/Ambient.
+# Ganti nama suara dengan file milikmu (lewat resource pack / Nexo).
+music:
+  enabled: false
+  playlist:
+    - { sound: "minecraft:music_disc.cat", length: 185 }
+    - { sound: "minecraft:music_disc.chirp", length: 185 }
+ambient:
+  enabled: false
+  interval-seconds: 45
+  sounds:
+    - "minecraft:ambient.cave"

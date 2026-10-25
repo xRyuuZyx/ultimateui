@@ -1,0 +1,26 @@
+name: UltimateUI
+version: '${project.version}'
+main: id.roleplay.ui.UltimateUIMC
+api-version: '1.21'
+description: Framework UI ala Ultimate UI - menu utama, menu jeda, pengaturan, loading screen, pesan konfirmasi
+
+commands:
+  menu:
+    description: Buka menu utama
+    aliases: [ui]
+    usage: /menu
+  pause:
+    description: Buka menu jeda
+    usage: /pause
+  settings:
+    description: Buka pengaturan
+    aliases: [pengaturan]
+    usage: /settings
+  uiadmin:
+    description: Admin UltimateUI
+    usage: /uiadmin <reload|loading>
+    permission: ultimateui.admin
+
+permissions:
+  ultimateui.admin:
+    default: op
